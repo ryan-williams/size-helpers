@@ -7,3 +7,11 @@ defn dub du -b
 defn ts total-size -h
 defn tsr total-size
 
+disk_tree() {
+  for arg in "$@"; do
+    pushd "$arg" || return 1
+    dus -h ./* | tee .disk-tree
+    popd || return 2
+  done
+}
+export -f disk_tree
