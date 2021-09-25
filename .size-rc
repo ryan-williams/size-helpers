@@ -8,3 +8,9 @@ defn ts total-size -h
 defn tsr total-size
 
 alias disk-tree=disk_tree.sh
+defn dts disk-tree
+disk_tree_tail() {
+    disk-tree | tail "$@"
+}
+export -f disk_tree_tail
+defn dtt disk_tree_tail
