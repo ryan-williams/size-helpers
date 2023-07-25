@@ -7,7 +7,7 @@ defn dub du -b
 defn ts total-size -h
 defn tsr total-size
 
-defn dts disk_tree.sh
+defn dts disk-tree
 disk_tree_tail() {
     disk_tree.sh | tail "$@"
 }
