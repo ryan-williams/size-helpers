@@ -13,3 +13,9 @@ disk_tree_tail() {
 }
 export -f disk_tree_tail
 defn dtt disk_tree_tail
+
+to_gb() {
+    numfmt --to-unit G --round nearest "$@"
+    # awk "{printf "%.2f GB\n", $1/1024/1024/1024}"
+}
+export -f to_gb
