@@ -19,3 +19,17 @@ to_gb() {
     # awk "{printf "%.2f GB\n", $1/1024/1024/1024}"
 }
 export -f to_gb
+
+dush_txt() {
+    if [ $# -eq 0 ]; then
+        dir=.
+    elif [ $# -eq 1 ]; then
+        dir="$1"
+    else
+        echo "Usage: dush_txt [dir]" >&2
+        return 1
+    fi
+    find "$dir" -maxdepth 1 | rv '^\.$' | p 'du -sh' | sort -hk1 | tee "$dir/dush.txt"
+}
+export -f dush_txt
+alias dsht=dush_txt
