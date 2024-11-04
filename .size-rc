@@ -4,6 +4,12 @@ defn dsh dus -h
 defn db du -b
 defn dub du -b
 
+du_sh_cwd() {
+    du -sh .[!.]* * | sort -h
+}
+export -f du_sh_cwd
+defn dsh. du_sh_cwd
+
 defn ts total-size -h
 defn tsr total-size
 
