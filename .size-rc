@@ -32,7 +32,7 @@ dush_txt() {
     elif [ $# -eq 1 ]; then
         dir="$1"
     else
-        echo "Usage: dush_txt [dir]" >&2
+        echo "Usage: ${FUNCNAME[0]} [dir]" >&2
         return 1
     fi
     find "$dir" -maxdepth 1 | rv '^\.$' | p 'du -sh' | sort -hk1 | tee "$dir/dush.txt"
